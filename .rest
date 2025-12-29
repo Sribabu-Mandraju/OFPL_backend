@@ -1,0 +1,11 @@
+POST http://localhost:3000/tokens/add-allowed-token
+Content-Type: application/json
+
+{
+    "tokenAddress": "0x05526D81979e0D80304aC64ED5690EAD3d9FfA76"
+}
+
+###
+
+GET http://localhost:3000/tokens/get-allowed-tokens
+Content-Type: application/json
