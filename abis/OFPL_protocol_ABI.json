@@ -1238,57 +1238,10 @@
         "name": "OFPL__PoolUpdated",
         "inputs": [
             {
-                "name": "pool",
-                "type": "tuple",
+                "name": "poolId",
+                "type": "bytes32",
                 "indexed": true,
-                "internalType": "struct Pool",
-                "components": [
-                    {
-                        "name": "lender",
-                        "type": "address",
-                        "internalType": "address"
-                    },
-                    {
-                        "name": "loanToken",
-                        "type": "address",
-                        "internalType": "address"
-                    },
-                    {
-                        "name": "collateralToken",
-                        "type": "address",
-                        "internalType": "address"
-                    },
-                    {
-                        "name": "minLoanSize",
-                        "type": "uint256",
-                        "internalType": "uint256"
-                    },
-                    {
-                        "name": "poolBalance",
-                        "type": "uint256",
-                        "internalType": "uint256"
-                    },
-                    {
-                        "name": "maxLoanRatio",
-                        "type": "uint256",
-                        "internalType": "uint256"
-                    },
-                    {
-                        "name": "auctionLength",
-                        "type": "uint256",
-                        "internalType": "uint256"
-                    },
-                    {
-                        "name": "interestRate",
-                        "type": "uint256",
-                        "internalType": "uint256"
-                    },
-                    {
-                        "name": "outStandingLoans",
-                        "type": "uint256",
-                        "internalType": "uint256"
-                    }
-                ]
+                "internalType": "bytes32"
             },
             {
                 "name": "updatedAt",
