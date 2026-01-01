@@ -73,3 +73,13 @@ export const initializePoolEventListeners = () => {
     // Don't throw error - allow server to continue running
   }
 }
+
+export const closePoolEventListeners = () => {
+  try {
+    provider.removeAllListeners();
+    c_ofpl.removeAllListeners();
+  } catch (error) {
+    console.error("❌ Failed to close pool event listeners:", error.message);
+    throw error;
+  }
+}
