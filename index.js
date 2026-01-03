@@ -12,6 +12,10 @@ import {
   initializePoolEventListeners,
   closePoolEventListeners,
 } from "./wss_controllers/poolEvents.js";
+import {
+  initializeLoanEventListeners,
+  closeLoanEventListeners,
+} from "./wss_controllers/loanEvents.js";
 
 dotenv.config();
 
@@ -45,6 +49,7 @@ mongoose
     try {
       initializeTokenEventListeners();
       initializePoolEventListeners();
+      initializeLoanEventListeners();
     } catch (error) {
       console.error(
         "⚠️  Failed to initialize event listeners, but server will continue:",
@@ -131,6 +136,7 @@ process.on("SIGINT", async () => {
   console.log("\n⚠️  Shutting down gracefully...");
   await closeEventListeners();
   await closePoolEventListeners();
+  await closeLoanEventListeners();
   await mongoose.connection.close();
   console.log("MongoDB connection closed");
   process.exit(0);

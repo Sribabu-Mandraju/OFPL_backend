@@ -955,62 +955,10 @@
         "name": "OFPL__LaonIsUpdated",
         "inputs": [
             {
-                "name": "newloan",
-                "type": "tuple",
+                "name": "loanId",
+                "type": "uint256",
                 "indexed": true,
-                "internalType": "struct Loan",
-                "components": [
-                    {
-                        "name": "lender",
-                        "type": "address",
-                        "internalType": "address"
-                    },
-                    {
-                        "name": "borrower",
-                        "type": "address",
-                        "internalType": "address"
-                    },
-                    {
-                        "name": "loanToken",
-                        "type": "address",
-                        "internalType": "address"
-                    },
-                    {
-                        "name": "collateralToken",
-                        "type": "address",
-                        "internalType": "address"
-                    },
-                    {
-                        "name": "debt",
-                        "type": "uint256",
-                        "internalType": "uint256"
-                    },
-                    {
-                        "name": "collateral",
-                        "type": "uint256",
-                        "internalType": "uint256"
-                    },
-                    {
-                        "name": "interestRate",
-                        "type": "uint256",
-                        "internalType": "uint256"
-                    },
-                    {
-                        "name": "auctionStartTimeStamp",
-                        "type": "uint256",
-                        "internalType": "uint256"
-                    },
-                    {
-                        "name": "loanStartTimeStamp",
-                        "type": "uint256",
-                        "internalType": "uint256"
-                    },
-                    {
-                        "name": "auctionLength",
-                        "type": "uint256",
-                        "internalType": "uint256"
-                    }
-                ]
+                "internalType": "uint256"
             },
             {
                 "name": "updatedAt",
@@ -1090,10 +1038,41 @@
                 "internalType": "bytes32"
             },
             {
-                "name": "createdAt",
+                "name": "loanId",
                 "type": "uint256",
                 "indexed": true,
                 "internalType": "uint256"
+            },
+            {
+                "name": "createdAt",
+                "type": "uint256",
+                "indexed": false,
+                "internalType": "uint256"
+            }
+        ],
+        "anonymous": false
+    },
+    {
+        "type": "event",
+        "name": "OFPL__LoanLenderChanged",
+        "inputs": [
+            {
+                "name": "loanId",
+                "type": "uint256",
+                "indexed": true,
+                "internalType": "uint256"
+            },
+            {
+                "name": "oldPoolId",
+                "type": "bytes32",
+                "indexed": true,
+                "internalType": "bytes32"
+            },
+            {
+                "name": "newPoolId",
+                "type": "bytes32",
+                "indexed": true,
+                "internalType": "bytes32"
             }
         ],
         "anonymous": false
