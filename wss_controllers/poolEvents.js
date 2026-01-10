@@ -14,12 +14,12 @@ export const initializePoolEventListeners = () => {
   try {
     // Check if required environment variables are set
     if (!process.env.BASE_SEPOLIA_WS_RPC_URL) {
-      console.warn("⚠️  BASE_SEPOLIA_WS_RPC_URL not set. WebSocket event listeners will not be initialized.");
+      console.warn("  BASE_SEPOLIA_WS_RPC_URL not set. WebSocket event listeners will not be initialized.");
       return;
     }
 
     if (!process.env.OFPL_PROTOCOL_ADDRESS) {
-      console.warn("⚠️  OFPL_PROTOCOL_ADDRESS not set. WebSocket event listeners will not be initialized.");
+      console.warn("  OFPL_PROTOCOL_ADDRESS not set. WebSocket event listeners will not be initialized.");
       return;
     }
 
@@ -29,13 +29,13 @@ export const initializePoolEventListeners = () => {
 
 
       provider.on("error", (error) => {
-        console.error("❌ WebSocket provider error:", error.message);
+        console.error(" WebSocket provider error:", error.message);
         if (error.message.includes("401") || error.message.includes("Unauthorized")) {
-          console.error("⚠️  WebSocket authentication failed. Please check your BASE_SEPOLIA_WS_RPC_URL API key.");
+          console.error("  WebSocket authentication failed. Please check your BASE_SEPOLIA_WS_RPC_URL API key.");
         }
       });
       provider.websocket.on("close", (code, reason) => {
-        console.warn(`⚠️  WebSocket connection closed. Code: ${code}, Reason: ${reason || "Unknown"}`);
+        console.warn(`  WebSocket connection closed. Code: ${code}, Reason: ${reason || "Unknown"}`);
       });
 
 
@@ -101,9 +101,9 @@ export const initializePoolEventListeners = () => {
           });
           
           await newPool.save();
-          console.log("✅ Pool created:", newPool.poolId);
+          console.log(" Pool created:", newPool.poolId);
         } catch (error) {
-          console.error("❌ Error processing pool creation:", error.message);
+          console.error(" Error processing pool creation:", error.message);
           console.error("Error stack:", error.stack);
         }
       });
@@ -151,21 +151,21 @@ export const initializePoolEventListeners = () => {
             updatedAt: updatedAt,
           },
         );
-        console.log("✅ Pool updated:", updatedPool.poolId);
+        console.log(" Pool updated:", updatedPool.poolId);
         } catch (error) {
-          console.error("❌ Error processing pool update:", error.message);
+          console.error(" Error processing pool update:", error.message);
           // console.error("Error stack:", error.stack);
         }
       })
       
 
     } catch (error) {
-      console.error("❌ Failed to create WebSocket provider:", error.message);
+      console.error(" Failed to create WebSocket provider:", error.message);
       throw error;
     }
 
   } catch (error) {
-    console.error("❌ Failed to initialize pool event listeners:", error.message);
+    console.error(" Failed to initialize pool event listeners:", error.message);
     // Don't throw error - allow server to continue running
   }
 }
@@ -175,7 +175,7 @@ export const closePoolEventListeners = () => {
     provider.removeAllListeners();
     c_ofpl.removeAllListeners();
   } catch (error) {
-    console.error("❌ Failed to close pool event listeners:", error.message);
+    console.error(" Failed to close pool event listeners:", error.message);
     throw error;
   }
 }
